@@ -1,0 +1,12 @@
+{
+  "name": "absensi",
+  "private": true,
+  "scripts": {
+    "web": "pnpm run --filter web",
+    "api": "pnpm run --filter api"
+  },
+  "devDependencies": {
+    "@absensi/eslint": "workspace:*",
+    "@absensi/typescript": "workspace:*"
+  }
+}
