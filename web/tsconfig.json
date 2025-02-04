@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "@absensi/typescript/nextjs.json"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.mjs",
+    ".next/types/**/*.ts",
+    "postcss.config.mjs"
+  ],
+}

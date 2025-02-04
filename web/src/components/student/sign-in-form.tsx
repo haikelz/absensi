@@ -1,0 +1,78 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/utils/string";
+import { signInStudentSchema } from "@/utils/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+export function SignInForm({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"div">) {
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      nim: "",
+    },
+    resolver: zodResolver(signInStudentSchema),
+  });
+
+  function onSubmit() {}
+
+  return (
+    <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl">Sign In</CardTitle>
+          <CardDescription>
+            Silahkan Sign In untuk melihat statistikmu!
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex flex-col gap-6">
+              <div className="grid gap-2">
+                <Label htmlFor="nim">Nomor Induk Mahasiswa(NIM)</Label>
+                <Input
+                  {...register("nim")}
+                  id="nim"
+                  name="nim"
+                  type="text"
+                  placeholder="Contoh: 2111500068"
+                  required
+                />
+                {errors.nim ? (
+                  <span className="text-xs text-red-500">
+                    {errors.nim.message}
+                  </span>
+                ) : null}
+              </div>
+              <Button type="submit" className="w-full font-bold">
+                Login
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+/*
+function IsPending() {
+  return <div className="w-full bg-gray-200 animate-pulse h-full"></div>;
+}
+*/
