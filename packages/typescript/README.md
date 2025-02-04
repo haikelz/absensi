@@ -1,0 +1,3 @@
+## @absensi/typescript
+
+Typescript Configs
