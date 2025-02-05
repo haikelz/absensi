@@ -25,6 +25,7 @@ export function SignInForm({
     handleSubmit,
   } = useForm({
     defaultValues: {
+      email: "",
       nim: "",
     },
     resolver: zodResolver(signInStudentSchema),
@@ -38,14 +39,30 @@ export function SignInForm({
         <CardHeader>
           <CardTitle className="text-2xl">Sign In</CardTitle>
           <CardDescription>
-            Silahkan Sign In untuk melihat statistikmu!
+            Silahkan Sign In ke Dashboard Mahasiswa!
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="nim">Nomor Induk Mahasiswa(NIM)</Label>
+                <Label htmlFor="email">Email Kampus *</Label>
+                <Input
+                  {...register("email")}
+                  id="email"
+                  name="email"
+                  type="text"
+                  placeholder="Masukkan Email Kampus"
+                  required
+                />
+                {errors.email ? (
+                  <span className="text-xs text-red-500">
+                    {errors.email.message}
+                  </span>
+                ) : null}
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="nim">Nomor Induk Mahasiswa(NIM) *</Label>
                 <Input
                   {...register("nim")}
                   id="nim"
@@ -70,9 +87,3 @@ export function SignInForm({
     </div>
   );
 }
-
-/*
-function IsPending() {
-  return <div className="w-full bg-gray-200 animate-pulse h-full"></div>;
-}
-*/
