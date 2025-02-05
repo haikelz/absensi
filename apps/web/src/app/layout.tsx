@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Wrapper from "./wrapper";
 
-const geistSans = Geist({
+const geistSans = Plus_Jakarta_Sans({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const baseMetadata = {
-  title: "Sign In | Absensi Perpustakaan ISB Atma Luhur",
-  description: "Sign In | Absensi Perpustakaan ISB Atma Luhur",
+  title: "Sistem Absensi Perpustakaan ISB Atma Luhur",
+  description: "Sistem Absensi Perpustakaan ISB Atma Luhur",
   url: "https://absensi-perpus.ekel.dev",
 };
 
@@ -62,9 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} antialiased`}>
         <Wrapper>{children}</Wrapper>
       </body>
     </html>

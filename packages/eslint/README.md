@@ -1,3 +1,3 @@
 ## @absensi/eslint
 
-ESLint Configs
+Shared ESLint Configs

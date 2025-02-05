@@ -1,3 +1,3 @@
 ## @absensi/typescript
 
-Typescript Configs
+Shared Typescript Configs

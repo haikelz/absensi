@@ -1,1 +1,3 @@
-All about documentation assets is in this folder.
+## Static
+
+All documentation assets are in this folder.
