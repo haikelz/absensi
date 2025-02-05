@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const validCampusEmailFormat = /^[a-zA-Z0-9._-]+@atmaluhur\.ac\.id$/;
+const validCampusEmailFormat = /^[a-zA-Z0-9._-]+@mahasiswa\.atmaluhur\.ac\.id$/;
 const validCampusEmailErrorMessage =
   "Email yang dimasukkan harus Email Kampus!";
 

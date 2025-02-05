@@ -4,7 +4,10 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 
+import dotenv from "dotenv";
 import { AppModule } from "./app.module";
+
+dotenv.config();
 
 const localAddress = "127.0.0.1";
 
