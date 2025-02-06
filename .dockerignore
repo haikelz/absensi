@@ -1,0 +1,15 @@
+.git
+.github
+README.md
+LICENSE
+apps/web/cypress
+apps/web/cypress.config.ts
+.husky
+.vscode
+
+# node modules
+packages/**/*/node_modules
+apps/**/*/node_modules
+
+.turbo
+node_modules

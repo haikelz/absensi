@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@absensi/typescript/nestjs.json"
+  ],
+}

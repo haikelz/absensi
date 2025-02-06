@@ -1,0 +1,21 @@
+{
+  "name": "absensi",
+  "private": true,
+  "author": "Haikel Ilham Hakim",
+  "description": "A monorepo for absensi",
+  "homepage": "https://absensi-perpus-atma-luhur.ekel.dev",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haikelz/ikuyo"
+  },
+  "scripts": {
+    "web": "pnpm run --filter web",
+    "api": "pnpm run --filter api"
+  },
+  "devDependencies": {
+    "@absensi/eslint": "workspace:*",
+    "@absensi/typescript": "workspace:*"
+  }
+}
