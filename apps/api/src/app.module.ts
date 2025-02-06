@@ -1,8 +1,7 @@
 import { CacheInterceptor, CacheModule } from "@nestjs/cache-manager";
 import { Module } from "@nestjs/common";
-import { APP_INTERCEPTOR, APP_PIPE } from "@nestjs/core";
+import { APP_INTERCEPTOR } from "@nestjs/core";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ZodValidationPipe } from "nestjs-zod";
 import { DataSource } from "typeorm";
 import { typeormConfig } from "./configs/typeorm";
 import { AdminModule } from "./modules/admin.module";
@@ -18,10 +17,7 @@ import { StudentModule } from "./modules/student.module";
     AdminModule,
     StudentModule,
   ],
-  providers: [
-    { provide: APP_INTERCEPTOR, useClass: CacheInterceptor },
-    { provide: APP_PIPE, useClass: ZodValidationPipe },
-  ],
+  providers: [{ provide: APP_INTERCEPTOR, useClass: CacheInterceptor }],
 })
 export class AppModule {
   constructor(private datasource: DataSource) {}

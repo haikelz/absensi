@@ -1,11 +1,12 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { Admin } from "../entities/admin";
+import { Student } from "../entities/student";
 import {
   DATABASE_HOST,
   DATABASE_NAME,
   DATABASE_PASSWORD,
   DATABASE_PORT,
   DATABASE_USERNAME,
-  REDIS_PORT,
 } from "../utils/constants";
 
 export const typeormConfig: TypeOrmModuleOptions = {
@@ -15,18 +16,8 @@ export const typeormConfig: TypeOrmModuleOptions = {
   username: DATABASE_USERNAME,
   password: DATABASE_PASSWORD,
   database: DATABASE_NAME,
-  entities: [],
-  synchronize: true,
+  entities: [Admin, Student],
   logging: true,
-  cache: {
-    type: "ioredis",
-    options: {
-      socket: {
-        host: DATABASE_HOST,
-        port: Number(REDIS_PORT),
-      },
-    },
-  },
   migrations: ["migrations/*{.ts,.js}"],
   migrationsTableName: "migrations",
 };

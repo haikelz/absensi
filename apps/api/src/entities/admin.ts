@@ -5,12 +5,12 @@ export class Admin extends BaseEntity {
   @PrimaryColumn("uuid")
   id: string;
 
-  @Column("string")
+  @Column("text")
   full_name: string;
 
-  @Column("string")
+  @Column("text")
   username: string;
 
-  @Column("string")
+  @Column("text")
   password: string;
 }

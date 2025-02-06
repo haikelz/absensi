@@ -1,9 +1,11 @@
 {
   "extends": "./base.json",
+  "lib": ["dom", "dom.iterable", "ESNext"],
   "compilerOptions": {
     "moduleResolution": "bundler",
     "jsx": "preserve",
     "incremental": true,
+    "module": "esnext",
     "plugins": [
       {
         "name": "next"
