@@ -71,6 +71,9 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.1
+      typeorm:
+        specifier: ^0.3.20
+        version: 0.3.20(ioredis@5.4.2)(pg@8.13.1)(ts-node@10.9.2(@types/node@22.13.1)(typescript@5.7.3))
     devDependencies:
       '@absensi/typescript':
         specifier: workspace:*

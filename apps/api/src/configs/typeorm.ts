@@ -27,7 +27,6 @@ export const typeormConfig: TypeOrmModuleOptions = {
       },
     },
   },
-  // Handle migrations
   migrations: ["migrations/*{.ts,.js}"],
   migrationsTableName: "migrations",
 };
