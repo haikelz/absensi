@@ -22,7 +22,7 @@ export const typeormConfig: TypeOrmModuleOptions = {
     type: "ioredis",
     options: {
       socket: {
-        host: "127.0.0.1",
+        host: DATABASE_HOST,
         port: Number(REDIS_PORT),
       },
     },
