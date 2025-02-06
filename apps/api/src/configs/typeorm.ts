@@ -5,6 +5,7 @@ import {
   DATABASE_PASSWORD,
   DATABASE_PORT,
   DATABASE_USERNAME,
+  REDIS_PORT,
 } from "../utils/constants";
 
 export const typeormConfig: TypeOrmModuleOptions = {
@@ -16,4 +17,17 @@ export const typeormConfig: TypeOrmModuleOptions = {
   database: DATABASE_NAME,
   entities: [],
   synchronize: true,
+  logging: true,
+  cache: {
+    type: "ioredis",
+    options: {
+      socket: {
+        host: "127.0.0.1",
+        port: Number(REDIS_PORT),
+      },
+    },
+  },
+  // Handle migrations
+  migrations: ["migrations/*{.ts,.js}"],
+  migrationsTableName: "migrations",
 };
