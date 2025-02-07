@@ -5,12 +5,12 @@ export class Student extends BaseEntity {
   @PrimaryColumn("uuid")
   id: string;
 
-  @Column("text")
+  @Column("varchar", { length: 10 })
   nim: string;
 
-  @Column("text")
+  @Column("varchar", { length: 255 })
   email: string;
 
-  @Column("text")
+  @Column("varchar", { length: 255 })
   full_name: string;
 }

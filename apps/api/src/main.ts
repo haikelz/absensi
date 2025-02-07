@@ -4,14 +4,15 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 
+import { SwaggerModule } from "@nestjs/swagger";
 import dotenv from "dotenv";
 import { AppModule } from "./app.module";
+import { swaggerConfig } from "./configs/swagger";
+import { DATABASE_HOST } from "./utils/constants";
 
 dotenv.config();
 
-const localAddress = "127.0.0.1";
-
-async function bootstrap() {
+async function main() {
   /**
    * @see https://docs.nestjs.com/techniques/performance
    */
@@ -23,10 +24,16 @@ async function bootstrap() {
 
     app.enableCors({ origin: "*" });
 
-    await app.listen(5000, localAddress);
+    /**
+     * Setup swagger
+     */
+    const swaggerDoc = SwaggerModule.createDocument(app, swaggerConfig);
+    SwaggerModule.setup("swagger", app, swaggerDoc);
+
+    await app.listen(5000, DATABASE_HOST);
   } catch (err) {
     console.error(err);
   }
 }
 
-bootstrap();
+main();
