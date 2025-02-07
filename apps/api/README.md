@@ -1,3 +1,11 @@
 ## @absensi/api
 
-Backend API for absensi using Nest JS.
+Backend API for absensi.
+
+## Technologies
+
+- Nest JS w/Fastify
+- PostgreSQL
+- Redis
+- Type ORM
+- Swagger Docs
