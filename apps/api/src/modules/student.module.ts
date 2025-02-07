@@ -6,6 +6,7 @@ import {
 } from "../controllers/student.controller";
 import {
   AbsenceService,
+  SignInStudentService,
   StatisticsStudentService,
 } from "../services/student.service";
 
@@ -15,6 +16,6 @@ import {
     StatisticsStudentController,
     SignInStudentController,
   ],
-  providers: [AbsenceService, StatisticsStudentService, AbsenceService],
+  providers: [AbsenceService, StatisticsStudentService, SignInStudentService],
 })
 export class StudentModule {}

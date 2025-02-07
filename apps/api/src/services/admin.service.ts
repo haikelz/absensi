@@ -12,5 +12,5 @@ export class StatisticsAdminService {
 
 @Injectable()
 export class DetailStatisticsStudentInAdminService {
-  public async getDetailStudent() {}
+  public async detailStatisticsStudentInAdmin() {}
 }

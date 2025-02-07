@@ -7,10 +7,15 @@ export class SignInStudentService {
 
 @Injectable()
 export class StatisticsStudentService {
-  public async getDetailStudent() {}
+  public async statisticsStudent() {}
 }
 
 @Injectable()
 export class AbsenceService {
-  public async absence() {}
+  public async absence() {
+    return {
+      data: 1,
+      status_code: 200,
+    };
+  }
 }
