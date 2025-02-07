@@ -22,6 +22,7 @@ export class AbsenceService {
   constructor(
     @InjectRepository(Student) private absenceResitory: Repository<Student>,
   ) {}
+
   public async absence() {
     return {
       data: 1,

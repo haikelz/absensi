@@ -1,11 +1,11 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 import {
   AbsenceService,
   SignInStudentService,
   StatisticsStudentService,
 } from "../services/student.service";
 
-@Controller("/api/v1/auth/sign-in")
+@Controller("/api/v1/student/auth/sign-in")
 export class SignInStudentController {
   constructor(private readonly signInService: SignInStudentService) {}
   public signIn() {
@@ -23,9 +23,10 @@ export class StatisticsStudentController {
   }
 }
 
-@Controller("/")
+@Controller("/api/v1/student/absence")
 export class AbsenceController {
   constructor(private readonly absenceService: AbsenceService) {}
+  @Get()
   public absence() {
     return this.absenceService.absence();
   }
