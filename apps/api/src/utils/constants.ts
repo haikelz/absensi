@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Env Related
+export const DATABASE_TYPE = process.env.DATABASE_TYPE as "postgres";
 export const DATABASE_HOST = process.env.DATABASE_HOST as string;
 export const DATABASE_PORT = process.env.DATABASE_PORT as unknown as number;
 export const DATABASE_USERNAME = process.env.DATABASE_USERNAME as string;

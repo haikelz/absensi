@@ -2,8 +2,8 @@ import { Controller } from "@nestjs/common";
 import {
   DetailStatisticsStudentInAdminService,
   SignInAdminService,
+  StatisticsAdminService,
 } from "../services/admin.service";
-import { StatisticsStudentService } from "../services/student.service";
 
 @Controller("/api/v1/admin/auth/sign-in")
 export class SignInAdminController {
@@ -16,11 +16,9 @@ export class SignInAdminController {
 @Controller("/api/v1/admin/student-statistics")
 export class StatisticsAdminController {
   constructor(
-    private readonly statisticsStudentService: StatisticsStudentService,
+    private readonly statisticsAdminService: StatisticsAdminService,
   ) {}
-  public statisticsStudent() {
-    return this.statisticsStudentService.statisticsStudent();
-  }
+  public statisticsStudent() {}
 }
 
 @Controller("/api/v1/admin/student-statistics/:nim")

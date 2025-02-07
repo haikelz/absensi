@@ -6,11 +6,12 @@ import {
   DATABASE_NAME,
   DATABASE_PASSWORD,
   DATABASE_PORT,
+  DATABASE_TYPE,
   DATABASE_USERNAME,
 } from "../utils/constants";
 
 export const typeormConfig: TypeOrmModuleOptions = {
-  type: "postgres",
+  type: DATABASE_TYPE,
   host: DATABASE_HOST,
   port: DATABASE_PORT,
   username: DATABASE_USERNAME,
@@ -20,4 +21,5 @@ export const typeormConfig: TypeOrmModuleOptions = {
   logging: true,
   migrations: ["migrations/*{.ts,.js}"],
   migrationsTableName: "migrations",
+  autoLoadEntities: true,
 };
