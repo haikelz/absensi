@@ -4,6 +4,7 @@ A monorepo for Absensi Perpustakaan ISB Atma Luhur Revamp version.
 
 ## Project Structure
 
+```
 ├── apps
 │   ├── api
 │   └── web
@@ -12,3 +13,4 @@ A monorepo for Absensi Perpustakaan ISB Atma Luhur Revamp version.
 │   └── typescript
 └── static
     └── docs
+```
