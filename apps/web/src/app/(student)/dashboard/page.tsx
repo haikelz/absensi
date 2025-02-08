@@ -3,6 +3,12 @@ import {
   NEXT_PUBLIC_PRODUCTION_URL,
 } from "@/utils/constants";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const Statistics = dynamic(() =>
+  import("@/components/student/statistics").then((comp) => comp.Statistics)
+);
 
 const baseMetadata = {
   title: `Dashboard Mahasiswa | ${MAIN_WEBSITE_TITLE}`,
@@ -37,10 +43,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
 };
 
-export default function DashboardStudent() {
+export default function DashboardStudentPage() {
   return (
     <div>
-      <div></div>
+      <div>
+        <Suspense>
+          <Statistics />
+        </Suspense>
+      </div>
     </div>
   );
 }

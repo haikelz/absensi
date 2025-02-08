@@ -1,31 +1,3 @@
 {
-  "compilerOptions": {
-    "composite": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
-    "isolatedModules": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-    "declaration": false,
-    "declarationMap": false,
-    "outDir": "./dist",
-    "module": "CommonJS",
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ESNext",
-    "sourceMap": true,
-    "incremental": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
-    "strict": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-  }
+  "extends": "@absensi/typescript/nestjs.json"
 }

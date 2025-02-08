@@ -1,28 +1,28 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import {
-  DetailStatisticsStudentInAdminContoller,
+  DetailStatisticStudentInAdminContoller,
   SignInAdminController,
-  StatisticsAdminController,
+  StudentStatisticsInAdminController,
 } from "../controllers/admin.controller";
 import { Admin } from "../entities/admin";
 import {
-  DetailStatisticsStudentInAdminService,
+  DetailStudentStatisticInAdminService,
   SignInAdminService,
-  StatisticsAdminService,
+  StudentStatisticsInAdminService,
 } from "../services/admin.service";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Admin])],
   controllers: [
     SignInAdminController,
-    StatisticsAdminController,
-    DetailStatisticsStudentInAdminContoller,
+    StudentStatisticsInAdminController,
+    DetailStatisticStudentInAdminContoller,
   ],
   providers: [
     SignInAdminService,
-    StatisticsAdminService,
-    DetailStatisticsStudentInAdminService,
+    StudentStatisticsInAdminService,
+    DetailStudentStatisticInAdminService,
   ],
 })
 export class AdminModule {}

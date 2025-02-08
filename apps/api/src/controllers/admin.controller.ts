@@ -1,32 +1,36 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get, Post } from "@nestjs/common";
 import {
-  DetailStatisticsStudentInAdminService,
+  DetailStudentStatisticInAdminService,
   SignInAdminService,
-  StatisticsAdminService,
+  StudentStatisticsInAdminService,
 } from "../services/admin.service";
 
 @Controller("/api/v1/admin/auth/sign-in")
 export class SignInAdminController {
-  constructor(private readonly signInService: SignInAdminService) {}
-  public signIn() {
-    return this.signInService.signIn();
+  constructor(private readonly service: SignInAdminService) {}
+
+  @Post()
+  public async signIn() {
+    return this.service.signIn();
   }
 }
 
 @Controller("/api/v1/admin/student-statistics")
-export class StatisticsAdminController {
-  constructor(
-    private readonly statisticsAdminService: StatisticsAdminService,
-  ) {}
-  public statisticsStudent() {}
+export class StudentStatisticsInAdminController {
+  constructor(private readonly service: StudentStatisticsInAdminService) {}
+
+  @Get()
+  public async studentStatisticsInAdmin() {
+    return this.service;
+  }
 }
 
 @Controller("/api/v1/admin/student-statistics/:nim")
-export class DetailStatisticsStudentInAdminContoller {
-  constructor(
-    private readonly detailStatisticsStudentInAdminService: DetailStatisticsStudentInAdminService,
-  ) {}
-  public detailStatisticsStudentInAdmin() {
-    return this.detailStatisticsStudentInAdminService.detailStatisticsStudentInAdmin();
+export class DetailStatisticStudentInAdminContoller {
+  constructor(private readonly service: DetailStudentStatisticInAdminService) {}
+
+  @Get()
+  public async detailStudentStatisticInAdmin() {
+    return this.service.getDetailStudentStatisticInAdmin("");
   }
 }

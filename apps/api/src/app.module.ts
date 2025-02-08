@@ -6,12 +6,12 @@ import { typeormConfig } from "./configs/typeorm";
 import { AdminModule } from "./modules/admin.module";
 import { StudentModule } from "./modules/student.module";
 
-/**
- * @see https://docs.nestjs.com/techniques/caching
- */
 @Module({
   imports: [
-    CacheModule.register({ isGlobal: true }),
+    /**
+     * @see https://docs.nestjs.com/techniques/caching
+     */
+    CacheModule.register({ isGlobal: true }), // Caching
     TypeOrmModule.forRoot(typeormConfig),
     AdminModule,
     StudentModule,

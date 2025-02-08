@@ -1,33 +1,33 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post } from "@nestjs/common";
 import {
   AbsenceService,
   SignInStudentService,
-  StatisticsStudentService,
+  StudentStatisticService,
 } from "../services/student.service";
 
 @Controller("/api/v1/student/auth/sign-in")
 export class SignInStudentController {
-  constructor(private readonly signInService: SignInStudentService) {}
-  public signIn() {
-    return this.signInService.signIn();
+  constructor(private readonly service: SignInStudentService) {}
+  @Post()
+  public async signIn() {
+    return this.service.signIn();
   }
 }
 
 @Controller("/api/v1/student/:nim")
-export class StatisticsStudentController {
-  constructor(
-    private readonly statisticsStudentService: StatisticsStudentService,
-  ) {}
-  public staticticsStudent() {
-    return this.statisticsStudentService.statisticsStudent();
+export class StudentStatisticController {
+  constructor(private readonly service: StudentStatisticService) {}
+  @Get()
+  public async studentStatistic() {
+    return this.service.getStudentStatistic("");
   }
 }
 
 @Controller("/api/v1/student/absence")
 export class AbsenceController {
-  constructor(private readonly absenceService: AbsenceService) {}
-  @Get()
-  public absence() {
-    return this.absenceService.absence();
+  constructor(private readonly service: AbsenceService) {}
+  @Post()
+  public async absence() {
+    return this.service.absence();
   }
 }

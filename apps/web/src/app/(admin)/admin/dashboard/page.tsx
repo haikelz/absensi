@@ -3,6 +3,14 @@ import {
   NEXT_PUBLIC_PRODUCTION_URL,
 } from "@/utils/constants";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const StudentStatistics = dynamic(() =>
+  import("@/components/admin/student-statistics").then(
+    (comp) => comp.StudentStatistics
+  )
+);
 
 const baseMetadata = {
   title: `Dashboard Admin | ${MAIN_WEBSITE_TITLE}`,
@@ -37,10 +45,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
 };
 
-export default function DashboardAdmin() {
+export default function DashboardAdminPage() {
   return (
     <div>
-      <div></div>
+      <div>
+        <Suspense>
+          <StudentStatistics />
+        </Suspense>
+      </div>
     </div>
   );
 }

@@ -3,22 +3,22 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import {
   AbsenceController,
   SignInStudentController,
-  StatisticsStudentController,
+  StudentStatisticController,
 } from "../controllers/student.controller";
 import { Student } from "../entities/student";
 import {
   AbsenceService,
   SignInStudentService,
-  StatisticsStudentService,
+  StudentStatisticService,
 } from "../services/student.service";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Student])],
   controllers: [
     AbsenceController,
-    StatisticsStudentController,
+    StudentStatisticController,
     SignInStudentController,
   ],
-  providers: [AbsenceService, StatisticsStudentService, SignInStudentService],
+  providers: [AbsenceService, StudentStatisticService, SignInStudentService],
 })
 export class StudentModule {}

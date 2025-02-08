@@ -3,8 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Wrapper from "./wrapper";
 
-const geistSans = Plus_Jakarta_Sans({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         alt: "OG Image",
       },
     ],
-    siteName: "jdwshlt.ekel.dev",
+    siteName: "absensi-perpus.ekel.dev",
   },
   twitter: {
     title,
@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${plusJakartaSans.variable} antialiased`}>
         <Wrapper>{children}</Wrapper>
       </body>
     </html>

@@ -32,23 +32,3 @@ export default function Homepage() {
     </>
   );
 }
-
-function Navbar() {
-  return (
-    <header className="w-full fixed top-0 flex justify-between items-center p-4 bg-white/70 backdrop-blur-md">
-      <nav className="mx-auto flex justify-between items-center max-w-7xl w-full">
-        <div>
-          <Link href="/">Home</Link>
-        </div>
-        <div className="flex justify-center items-center space-x-5">
-          <Link href="/absence" className="font-bold">
-            Absensi
-          </Link>
-          <Link href="/student/dashboard" className="font-bold">
-            Dashboard
-          </Link>
-        </div>
-      </nav>
-    </header>
-  );
-}

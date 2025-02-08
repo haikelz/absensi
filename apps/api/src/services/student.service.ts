@@ -2,31 +2,36 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Student } from "../entities/student";
+import { StudentModule } from "../modules/student.module";
 
 @Injectable()
 export class SignInStudentService {
-  public async signIn() {}
+  constructor(
+    @InjectRepository(Student) private repo: Repository<StudentModule>,
+  ) {}
+  public async signIn() {
+    return this.repo;
+  }
 }
 
 @Injectable()
-export class StatisticsStudentService {
+export class StudentStatisticService {
   constructor(
     @InjectRepository(Student)
-    private statisticsStudentRepository: Repository<Student>,
+    private repo: Repository<StudentModule>,
   ) {}
-  public async statisticsStudent() {}
+  public async getStudentStatistic(nim: string) {
+    return this.repo.find({ where: (data) => data.nim === nim });
+  }
 }
 
 @Injectable()
 export class AbsenceService {
   constructor(
-    @InjectRepository(Student) private absenceResitory: Repository<Student>,
+    @InjectRepository(Student) private repo: Repository<StudentModule>,
   ) {}
 
   public async absence() {
-    return {
-      data: 1,
-      status_code: 200,
-    };
+    return this.repo;
   }
 }
