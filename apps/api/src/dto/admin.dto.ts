@@ -1,8 +1,14 @@
+import { IsEmail, IsString } from "class-validator";
+
 export class SignInAdminDto {
-  username: string;
+  @IsEmail()
+  email: string;
+
+  @IsString()
   password: string;
 }
 
 export class DetailStudentStatisticInAdminDto {
+  @IsString()
   nim: string;
 }

@@ -4,13 +4,12 @@ import {
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
 
+import compression from "@fastify/compress";
+import { ValidationPipe } from "@nestjs/common";
 import { SwaggerModule } from "@nestjs/swagger";
-import dotenv from "dotenv";
 import { AppModule } from "./app.module";
 import { swaggerConfig } from "./configs/swagger";
 import { DATABASE_HOST } from "./utils/constants";
-
-dotenv.config();
 
 async function main() {
   /**
@@ -20,6 +19,7 @@ async function main() {
     const app = await NestFactory.create<NestFastifyApplication>(
       AppModule,
       new FastifyAdapter(),
+      { logger: ["log", "fatal", "error", "warn", "debug", "verbose"] },
     );
 
     app.enableCors({ origin: "*" });
@@ -30,6 +30,13 @@ async function main() {
     const swaggerDoc = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup("swagger", app, swaggerDoc);
 
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+      }),
+    );
+
+    await app.register(compression, { encodings: ["gzip", "deflate"] });
     await app.listen(5000, DATABASE_HOST);
   } catch (err) {
     console.error(err);

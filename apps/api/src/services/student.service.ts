@@ -7,7 +7,11 @@ import { Student } from "../entities/student";
 export class SignInStudentService {
   constructor(@InjectRepository(Student) private repo: Repository<Student>) {}
   public async signIn(email: string, nim: string) {
-    return this.repo;
+    const data = await this.repo.findBy({
+      email,
+      nim,
+    });
+    return data;
   }
 }
 
@@ -18,22 +22,16 @@ export class StudentStatisticService {
     private repo: Repository<Student>,
   ) {}
   public async getStudentStatistic(nim: string) {
-    const data = await this.repo.find({
-      where: {
-        nim,
-      },
-    });
-
-    return {
-      status_code: 200,
-      message: "Success!",
-      data: data,
-    };
+    const data = await this.repo.findBy({ nim });
+    return data;
   }
 }
 
 @Injectable()
 export class AbsenceService {
   constructor(@InjectRepository(Student) private repo: Repository<Student>) {}
-  public async absence(email: string, nim: string) {}
+  public async absence(email: string, nim: string) {
+    const data = await this.repo.findBy({ email, nim });
+    return data;
+  }
 }

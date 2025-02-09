@@ -11,5 +11,9 @@ apps/web/cypress.config.ts
 packages/**/*/node_modules
 apps/**/*/node_modules
 
+# node modules
+packages/**/*/dist
+apps/**/*/dist
+
 .turbo
 node_modules

@@ -6,10 +6,10 @@ export class Admin extends BaseEntity {
   id: string;
 
   @Column("varchar", { length: 255 })
-  full_name: string;
+  email: string;
 
   @Column("varchar", { length: 255 })
-  username: string;
+  full_name: string;
 
   @Column("varchar", { length: 255 })
   password: string;

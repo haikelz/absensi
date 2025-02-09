@@ -15,7 +15,7 @@ export class SignInAdminController {
 
   @Post()
   public async signIn(@Body() body: SignInAdminDto) {
-    return this.service.signIn(body.username, body.password);
+    return this.service.signIn(body.email, body.password);
   }
 }
 

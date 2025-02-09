@@ -1,4 +1,4 @@
-import { Injectable, Post } from "@nestjs/common";
+import { Get, Injectable, Post } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Admin } from "../entities/admin";
@@ -8,19 +8,34 @@ import { Student } from "../entities/student";
 export class SignInAdminService {
   constructor(@InjectRepository(Admin) private repo: Repository<Admin>) {}
   @Post()
-  public async signIn(username: string, password: string) {
-    return this.repo;
+  public async signIn(email: string, password: string) {
+    const data = await this.repo.findBy({
+      email,
+      password,
+    });
+    return data;
+  }
+}
+
+@Injectable()
+export class AdminProfileService {
+  constructor(@InjectRepository(Admin) private repo: Repository<Admin>) {}
+  @Get()
+  public async getAdminProfile(email: string) {
+    const data = await this.repo.findBy({ email });
+    return data;
   }
 }
 
 @Injectable()
 export class StudentStatisticsInAdminService {
   constructor(
-    @InjectRepository(Admin)
-    private repo: Repository<Admin>,
+    @InjectRepository(Student)
+    private repo: Repository<Student>,
   ) {}
   public async getStudentStatisticsInAdmin() {
-    return this.repo;
+    const data = await this.repo.find();
+    return data;
   }
 }
 
@@ -31,16 +46,7 @@ export class DetailStudentStatisticInAdminService {
     private repo: Repository<Student>,
   ) {}
   public async getDetailStudentStatisticInAdmin(nim: string) {
-    const data = await this.repo.find({
-      where: {
-        nim,
-      },
-    });
-
-    return {
-      status_code: 200,
-      message: "Success!",
-      data: data,
-    };
+    const data = await this.repo.findBy({ nim });
+    return data;
   }
 }
