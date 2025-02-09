@@ -1,4 +1,8 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import {
+  DetailStudentStatisticInAdminDto,
+  SignInAdminDto,
+} from "../dto/admin.dto";
 import {
   DetailStudentStatisticInAdminService,
   SignInAdminService,
@@ -10,8 +14,8 @@ export class SignInAdminController {
   constructor(private readonly service: SignInAdminService) {}
 
   @Post()
-  public async signIn() {
-    return this.service.signIn();
+  public async signIn(@Body() body: SignInAdminDto) {
+    return this.service.signIn(body.username, body.password);
   }
 }
 
@@ -30,7 +34,9 @@ export class DetailStatisticStudentInAdminContoller {
   constructor(private readonly service: DetailStudentStatisticInAdminService) {}
 
   @Get()
-  public async detailStudentStatisticInAdmin(@Param() params: { nim: string }) {
+  public async detailStudentStatisticInAdmin(
+    @Param() params: DetailStudentStatisticInAdminDto,
+  ) {
     return this.service.getDetailStudentStatisticInAdmin(params.nim);
   }
 }

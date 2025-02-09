@@ -6,7 +6,7 @@ import { Student } from "../entities/student";
 @Injectable()
 export class SignInStudentService {
   constructor(@InjectRepository(Student) private repo: Repository<Student>) {}
-  public async signIn() {
+  public async signIn(email: string, nim: string) {
     return this.repo;
   }
 }
@@ -18,17 +18,22 @@ export class StudentStatisticService {
     private repo: Repository<Student>,
   ) {}
   public async getStudentStatistic(nim: string) {
-    return this.repo.find({
+    const data = await this.repo.find({
       where: {
-        nim: nim,
+        nim,
       },
     });
+
+    return {
+      status_code: 200,
+      message: "Success!",
+      data: data,
+    };
   }
 }
 
 @Injectable()
 export class AbsenceService {
   constructor(@InjectRepository(Student) private repo: Repository<Student>) {}
-
-  public async absence() {}
+  public async absence(email: string, nim: string) {}
 }

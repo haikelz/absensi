@@ -1,4 +1,9 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import {
+  AbsenceDto,
+  SignInStudentDto,
+  StudentStatisticDto,
+} from "../dto/student.dto";
 import {
   AbsenceService,
   SignInStudentService,
@@ -9,8 +14,8 @@ import {
 export class SignInStudentController {
   constructor(private readonly service: SignInStudentService) {}
   @Post()
-  public async signIn() {
-    return this.service.signIn();
+  public async signIn(@Body() body: SignInStudentDto) {
+    return this.service.signIn(body.email, body.nim);
   }
 }
 
@@ -18,7 +23,7 @@ export class SignInStudentController {
 export class StudentStatisticController {
   constructor(private readonly service: StudentStatisticService) {}
   @Get()
-  public async studentStatistic(@Param() params: { nim: string }) {
+  public async studentStatistic(@Param() params: StudentStatisticDto) {
     return this.service.getStudentStatistic(params.nim);
   }
 }
@@ -27,7 +32,7 @@ export class StudentStatisticController {
 export class AbsenceController {
   constructor(private readonly service: AbsenceService) {}
   @Post()
-  public async absence() {
-    return this.service.absence();
+  public async absence(@Body() body: AbsenceDto) {
+    return this.service.absence(body.email, body.nim);
   }
 }

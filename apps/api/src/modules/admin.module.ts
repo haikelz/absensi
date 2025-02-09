@@ -6,6 +6,7 @@ import {
   StudentStatisticsInAdminController,
 } from "../controllers/admin.controller";
 import { Admin } from "../entities/admin";
+import { Student } from "../entities/student";
 import {
   DetailStudentStatisticInAdminService,
   SignInAdminService,
@@ -13,7 +14,7 @@ import {
 } from "../services/admin.service";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Admin])],
+  imports: [TypeOrmModule.forFeature([Admin, Student])],
   controllers: [
     SignInAdminController,
     StudentStatisticsInAdminController,
