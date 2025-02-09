@@ -1,7 +1,8 @@
-import { IsEmail, IsString } from "class-validator";
+import { IsEmail, IsString, Length } from "class-validator";
 
 export class SignInAdminDto {
   @IsEmail()
+  @IsString()
   email: string;
 
   @IsString()
@@ -10,5 +11,6 @@ export class SignInAdminDto {
 
 export class DetailStudentStatisticInAdminDto {
   @IsString()
+  @Length(10)
   nim: string;
 }
