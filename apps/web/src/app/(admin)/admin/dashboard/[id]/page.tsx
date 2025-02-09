@@ -7,7 +7,7 @@ const DetailStudentStatistic = dynamic(() =>
   )
 );
 
-export default function DetailLStudentStatisticPage() {
+export default function DetailStudentStatisticPage() {
   return (
     <div>
       <div>

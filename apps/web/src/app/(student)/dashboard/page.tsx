@@ -6,8 +6,8 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-const Statistics = dynamic(() =>
-  import("@/components/student/statistics").then((comp) => comp.Statistics)
+const Statistic = dynamic(() =>
+  import("@/components/student/statistic").then((comp) => comp.Statistic)
 );
 
 const baseMetadata = {
@@ -48,7 +48,7 @@ export default function DashboardStudentPage() {
     <div>
       <div>
         <Suspense>
-          <Statistics />
+          <Statistic />
         </Suspense>
       </div>
     </div>

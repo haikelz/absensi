@@ -19,6 +19,7 @@ export const typeormConfig: TypeOrmModuleOptions = {
   database: DATABASE_NAME,
   entities: [Admin, Student],
   logging: true,
+  synchronize: true,
   migrations: ["migrations/*{.ts,.js}"],
   migrationsTableName: "migrations",
   autoLoadEntities: true,

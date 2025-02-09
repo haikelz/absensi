@@ -2,6 +2,6 @@ import { DocumentBuilder } from "@nestjs/swagger";
 
 export const swaggerConfig = new DocumentBuilder()
   .setTitle("@absensi/api")
-  .setDescription("API for absensi")
+  .setDescription("API for absensi app")
   .setLicense("MIT", "https://github.com/haikelz/absensi/blob/master/LICENSE")
   .build();

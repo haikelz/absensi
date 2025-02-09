@@ -17,3 +17,7 @@ export interface AdminProps {
   username: string;
   password: string;
 }
+
+// export interface SuccessMessageProps {}
+//
+// export interface ErrorMessageProps {}

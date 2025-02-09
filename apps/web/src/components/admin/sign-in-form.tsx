@@ -76,7 +76,7 @@ export function SignInForm({
                 ) : null}
               </div>
               <Button type="submit" className="w-full font-bold">
-                Login
+                Sign In
               </Button>
             </div>
           </form>

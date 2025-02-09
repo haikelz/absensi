@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from "@nestjs/common";
+import { Controller, Get, Param, Post } from "@nestjs/common";
 import {
   AbsenceService,
   SignInStudentService,
@@ -18,8 +18,8 @@ export class SignInStudentController {
 export class StudentStatisticController {
   constructor(private readonly service: StudentStatisticService) {}
   @Get()
-  public async studentStatistic() {
-    return this.service.getStudentStatistic("");
+  public async studentStatistic(@Param() params: { nim: string }) {
+    return this.service.getStudentStatistic(params.nim);
   }
 }
 

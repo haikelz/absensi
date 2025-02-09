@@ -1,4 +1,4 @@
-export function DetailStatistic() {
+export function Profile() {
   return (
     <div>
       <div></div>
