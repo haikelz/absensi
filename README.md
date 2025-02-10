@@ -14,3 +14,8 @@ A monorepo for Absensi Perpustakaan ISB Atma Luhur Revamp version.
 └── static
     └── docs
 ```
+
+## Technologies
+
+- Frontend: Next JS
+- Backend: Nest JS

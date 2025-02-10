@@ -25,7 +25,7 @@ export class StudentStatisticsInAdminController {
 
   @Get()
   public async studentStatisticsInAdmin() {
-    return this.service;
+    return this.service.getStudentStatisticsInAdmin();
   }
 }
 

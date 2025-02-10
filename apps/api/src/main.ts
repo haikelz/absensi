@@ -37,8 +37,13 @@ async function main() {
       }),
     );
 
+    // CSRF
     await app.register(fastifyCsrf);
+
+    // Helmet
     await app.register(helmet, { contentSecurityPolicy: false });
+
+    // Compression
     await app.register(compression, { encodings: ["gzip", "deflate"] });
 
     await app.listen(APP_PORT, DATABASE_HOST);
