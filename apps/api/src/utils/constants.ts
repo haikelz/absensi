@@ -16,3 +16,5 @@ export const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY as string;
 export const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 export const AWS_BUCKET_NAME = process.env.AWS_BUCKET_NAME as string;
 export const APP_PORT = process.env.APP_PORT as string;
+
+export const GITHUB_REPO_URL = "https://github.com/haikelz/absensi";

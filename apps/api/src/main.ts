@@ -1,18 +1,16 @@
+import compression from "@fastify/compress";
+import fastifyCsrf from "@fastify/csrf-protection";
+import helmet from "@fastify/helmet";
+import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
-
-import compression from "@fastify/compress";
-import { ValidationPipe } from "@nestjs/common";
 import { SwaggerModule } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
 import { swaggerConfig } from "./configs/swagger";
 import { APP_PORT, DATABASE_HOST } from "./utils/constants";
-
-import fastifyCsrf from "@fastify/csrf-protection";
-import helmet from "@fastify/helmet";
 
 async function main() {
   /**
@@ -42,6 +40,7 @@ async function main() {
     await app.register(fastifyCsrf);
     await app.register(helmet, { contentSecurityPolicy: false });
     await app.register(compression, { encodings: ["gzip", "deflate"] });
+
     await app.listen(APP_PORT, DATABASE_HOST);
   } catch (err) {
     console.error(err);
