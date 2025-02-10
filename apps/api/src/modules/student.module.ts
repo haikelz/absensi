@@ -5,6 +5,7 @@ import {
   SignInStudentController,
   StudentStatisticController,
 } from "../controllers/student.controller";
+import { Absence } from "../entities/absence";
 import { Student } from "../entities/student";
 import {
   AbsenceService,
@@ -13,7 +14,7 @@ import {
 } from "../services/student.service";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Student])],
+  imports: [TypeOrmModule.forFeature([Student, Absence])],
   controllers: [
     AbsenceController,
     StudentStatisticController,
