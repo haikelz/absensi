@@ -12,9 +12,9 @@ import {
 @Controller("/api/v1/admin/auth/sign-in")
 export class SignInAdminController {
   constructor(private readonly service: SignInAdminService) {}
-
   @Post()
   public async signIn(@Body() body: SignInAdminDto) {
+    // Sign In Logic Here
     return this.service.signIn(body.email, body.password);
   }
 }
