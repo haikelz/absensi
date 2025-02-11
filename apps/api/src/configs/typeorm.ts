@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { Admin } from "../entities/admin";
-import { Student } from "../entities/student";
+import { Absence, Student } from "../entities/student";
 import {
   DATABASE_HOST,
   DATABASE_NAME,
@@ -17,7 +17,7 @@ export const typeormConfig: TypeOrmModuleOptions = {
   username: DATABASE_USERNAME,
   password: DATABASE_PASSWORD,
   database: DATABASE_NAME,
-  entities: [Admin, Student],
+  entities: [Admin, Student, Absence],
   logging: true,
   migrations: [`${__dirname}/../**/*.entity{.ts,.js}`],
   migrationsTableName: "migrations",

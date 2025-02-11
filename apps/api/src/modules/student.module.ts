@@ -5,8 +5,7 @@ import {
   SignInStudentController,
   StudentStatisticController,
 } from "../controllers/student.controller";
-import { Absence } from "../entities/absence";
-import { Student } from "../entities/student";
+import { Absence, Student } from "../entities/student";
 import {
   AbsenceService,
   SignInStudentService,

@@ -25,9 +25,7 @@ async function main() {
 
     app.enableCors({ origin: "*" });
 
-    /**
-     * Setup swagger
-     */
+    // Setup swagger
     const swaggerDoc = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup("swagger", app, swaggerDoc);
 

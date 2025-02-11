@@ -18,3 +18,6 @@ export const AWS_BUCKET_NAME = process.env.AWS_BUCKET_NAME as string;
 export const APP_PORT = process.env.APP_PORT as string;
 
 export const GITHUB_REPO_URL = "https://github.com/haikelz/absensi";
+export const NIM_VALIDATION_ERROR_MESSAGE = "NIM must equal to 10 characters!";
+export const PASSWORD_VALIDATION_ERROR_MESSAGE =
+  "Password must equal or more than 6 characters!";
